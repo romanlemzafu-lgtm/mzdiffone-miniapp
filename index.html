@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#15100d">
+  <title>Mzdiff Cozy v2.1</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+  <div class="ambient a1"></div>
+  <div class="ambient a2"></div>
+
+  <main>
+    <header class="topbar">
+      <button id="logoButton" class="brand" aria-label="Mzdiff">
+        <span class="brand-mark">M</span>
+        <span>
+          <b>Mzdiff</b>
+          <small>cozy corner</small>
+        </span>
+      </button>
+      <div id="avatar" class="avatar">M</div>
+    </header>
+
+    <section class="page active" data-page="home">
+      <div class="welcome">
+        <span class="eyebrow">ДОБРО ПОЖАЛОВАТЬ</span>
+        <h1 id="hello">Привет 👋</h1>
+        <p>Маленький уютный уголок Mzdiff, стримов и Котости.</p>
+      </div>
+
+      <article class="stream-card">
+        <div class="stream-row">
+          <div>
+            <span class="status-pill"><i></i> СТАТУС СТРИМА</span>
+            <h2>Расписание в боте</h2>
+            <p>Актуальное время, игра и название эфира — у Mzdiff Bot.</p>
+          </div>
+          <span class="stream-icon">☕</span>
+        </div>
+        <div class="action-row">
+          <button class="primary" onclick="openBot('schedule')">📅 Расписание</button>
+          <button class="soft" onclick="openLink('https://twitch.tv/mzdiffone')">Twitch ↗</button>
+        </div>
+      </article>
+
+      <section class="section">
+        <div class="section-title">
+          <h2>Быстро</h2><span>всё нужное</span>
+        </div>
+        <div class="quick-grid">
+          <button class="quick" onclick="openLink('https://t.me/mzdiffone')"><span>📢</span><b>Telegram</b><small>новости</small></button>
+          <button class="quick" onclick="openLink('https://dalink.to/mzdiffone')"><span>💸</span><b>Донат</b><small>поддержать</small></button>
+          <button class="quick hot" onclick="goPage('kotost')"><span>🐱</span><b>KOTOST</b><small>DROP 01</small></button>
+          <button class="quick" onclick="goPage('game')"><span>🎮</span><b>Игра</b><small>котокоины</small></button>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-title">
+          <h2>Новости</h2><span>последнее</span>
+        </div>
+        <div class="news-list">
+          <article class="news-card">
+            <span>🐱</span>
+            <div><b>KOTOST DROP 01</b><p>Первые товары уже в Mini App. Пока — «Скоро в продаже».</p></div>
+          </article>
+          <article class="news-card">
+            <span>🎮</span>
+            <div><b>Kotost Game</b><p>Мини-игра ради прикола уже работает. Копи котокоины.</p></div>
+          </article>
+          <article class="news-card">
+            <span>🛠</span>
+            <div><b>Mzdiff Mini App</b><p>Уютный редизайн и секретная пасхалка добавлены.</p></div>
+          </article>
+        </div>
+      </section>
+    </section>
+
+    <section class="page" data-page="game">
+      <div class="page-heading">
+        <span class="eyebrow">KOTOST GAME</span>
+        <h1>Тыкни Котость 🐾</h1>
+        <p>Бессмысленно. Уютно. Поэтому идеально.</p>
+      </div>
+
+      <article class="game-card">
+        <div class="coin-line">
+          <div><small>КОТОКОИНЫ</small><strong id="coins">0</strong></div>
+          <div><small>ЗА ТЫК</small><strong id="power">+1</strong></div>
+        </div>
+
+        <button id="catTap" class="cat-tap">
+          <img src="mini.jpg" alt="Котость">
+          <span id="tapPop">+1</span>
+        </button>
+
+        <p id="gamePhrase" class="game-phrase">Котость ждёт тыка.</p>
+
+        <button id="upgradeButton" class="primary full">🐾 Купить лапку x2 — 100 🪙</button>
+        <button id="resetGame" class="ghost full">Сбросить игру</button>
+      </article>
+    </section>
+
+    <section class="page" data-page="kotost">
+      <div class="page-heading">
+        <span class="eyebrow">KOTOST BY MZDIFF</span>
+        <h1>DROP 01 🐱</h1>
+        <p>Первые Котости готовятся выбраться в реальный мир.</p>
+      </div>
+
+      <article class="drop-hero">
+        <img src="divine.jpg" alt="Божественная Котость">
+        <div class="drop-overlay">
+          <span class="soon">СКОРО В ПРОДАЖЕ</span>
+          <h2>KOTOST DROP 01</h2>
+          <p>Фигурки и стикерпак. Предзаказ откроем через форму.</p>
+        </div>
+      </article>
+
+      <div class="products">
+        <article class="product">
+          <img src="divine.jpg" alt="KOTOST Divine">
+          <div class="product-body"><span class="soon small">СКОРО</span><h3>#001 DIVINE</h3><p>Божественная Котость</p></div>
+        </article>
+        <article class="product">
+          <img src="mini.jpg" alt="KOTOST Mini">
+          <div class="product-body"><span class="soon small">СКОРО</span><h3>#002 MINI</h3><p>Мини Котость</p></div>
+        </article>
+        <article class="product">
+          <img src="mini2.jpg" alt="KOTOST Mini 2">
+          <div class="product-body"><span class="soon small">СКОРО</span><h3>#003 MINI 2</h3><p>Котость с мятным вайбом</p></div>
+        </article>
+        <article class="product">
+          <img src="angry.jpg" alt="KOTOST Angry">
+          <div class="product-body"><span class="soon small">СКОРО</span><h3>#004 ANGRY</h3><p>Котость в шоке</p></div>
+        </article>
+        <article class="product wide">
+          <img src="stickerpack.jpg" alt="KOTOST Sticker Pack">
+          <div class="product-body"><span class="soon small">СКОРО</span><h3>STICKER PACK</h3><p>Набор Котости в разных состояниях</p></div>
+        </article>
+      </div>
+
+      <article class="preorder-card">
+        <span class="eyebrow">ПРЕДЗАКАЗ</span>
+        <h2>Хочешь Котость первым?</h2>
+        <p>Форма пока готовится. Никакой оплаты сейчас нет — это будет только заявка на интерес.</p>
+        <button class="primary full" onclick="openPreorder()">🐱 Оформить предзаказ</button>
+        <small>Ссылка на форму подключается одной строкой в app.js.</small>
+      </article>
+    </section>
+
+    <section class="page" data-page="profile">
+      <div class="profile-card">
+        <div id="profileAvatar" class="profile-avatar">M</div>
+        <span class="eyebrow">ПРОФИЛЬ</span>
+        <h1 id="profileName">Гость</h1>
+        <p id="profileUsername">Открыто через Telegram Mini App</p>
+        <div class="role-row">
+          <span>Роль</span><b id="profileRole">👤 Зритель</b>
+        </div>
+        <div class="role-row">
+          <span>Котокоины</span><b id="profileCoins">0 🪙</b>
+        </div>
+        <button class="soft full" onclick="openBot('viewer')">Открыть панель зрителя в боте</button>
+        <button class="soft full" onclick="openBot('vip')">⭐ Проверить VIP</button>
+      </div>
+
+      <article class="note-card">
+        <b>Почему роль пока «Зритель»?</b>
+        <p>Mini App лежит на GitHub Pages и не имеет доступа к локальному файлу бота. VIP и модерские права проверяются безопасно внутри самого бота.</p>
+      </article>
+    </section>
+
+    <section class="page" data-page="more">
+      <div class="page-heading">
+        <span class="eyebrow">ЕЩЁ</span>
+        <h1>Всякое полезное</h1>
+      </div>
+
+      <div class="menu-list">
+        <button onclick="openBot('viewer')"><span>👤 Панель зрителя</span><b>›</b></button>
+        <button onclick="openBot('vip')"><span>⭐ VIP</span><b>›</b></button>
+        <button onclick="openLink('https://t.me/mzdiffone')"><span>📢 Telegram</span><b>›</b></button>
+        <button onclick="openLink('https://twitch.tv/mzdiffone')"><span>🔴 Twitch</span><b>›</b></button>
+        <button onclick="openLink('https://dalink.to/mzdiffone')"><span>💸 Донат</span><b>›</b></button>
+        <button onclick="showBotStatus()"><span>🛠 Статус приложения</span><b>›</b></button>
+        <button onclick="hintSecret()"><span>❔ Пасхалка</span><b>›</b></button>
+      </div>
+
+      <footer>
+        <b>© 2026 Mzdiff & KOTOST</b>
+        <span>Cozy Mini App • v2.0</span>
+      </footer>
+    </section>
+  </main>
+
+  <nav class="bottom-nav">
+    <button class="active" data-target="home"><span>⌂</span><small>Главная</small></button>
+    <button data-target="game"><span>🎮</span><small>Игра</small></button>
+    <button data-target="kotost"><span>🐱</span><small>KOTOST</small></button>
+    <button data-target="profile"><span>♙</span><small>Профиль</small></button>
+    <button data-target="more"><span>☰</span><small>Ещё</small></button>
+  </nav>
+
+  <div id="secretOverlay" class="secret-overlay" aria-hidden="true">
+    <button id="secretClose">×</button>
+    <img src="secret.gif" alt="Секретная Котость">
+    <h2>ТЫ НАШЁЛ КОТОСТЬ</h2>
+    <p>Никому не говори. Хотя можешь.</p>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
